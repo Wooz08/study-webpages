@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>保险考试 · 学习网页入口</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+           background:#f1f5f9; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; }
+    .wrap { width:100%; max-width:420px; }
+    h1 { text-align:center; font-size:20px; color:#0d3b66; margin-bottom:6px; }
+    p.sub { text-align:center; font-size:13px; color:#64748b; margin-bottom:24px; }
+    a.card { display:flex; align-items:center; gap:16px; background:#fff; border-radius:16px; padding:20px;
+             margin-bottom:16px; text-decoration:none; box-shadow:0 2px 8px rgba(15,23,42,.08); transition:transform .15s; }
+    a.card:active { transform:scale(.98); }
+    .icon { font-size:36px; }
+    .t { font-size:17px; font-weight:600; color:#0f172a; }
+    .d { font-size:13px; color:#64748b; margin-top:4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>保险考试 · 学习网页</h1>
+    <p class="sub">选择要进入的学习网页</p>
+    <a class="card" href="solvency/">
+      <span class="icon">🛡️</span>
+      <span>
+        <span class="t">偿付能力监管规则</span>
+        <div class="d">C-ROSS II · 20份监管规则 · 840题</div>
+      </span>
+    </a>
+    <a class="card" href="fm/">
+      <span class="icon">📚</span>
+      <span>
+        <span class="t">财务管理</span>
+        <div class="d">教材 + 财务成本管理 + 制度 · 722题</div>
+      </span>
+    </a>
+  </div>
+</body>
+</html>
