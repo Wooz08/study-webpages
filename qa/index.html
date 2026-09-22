@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0d3b66" />
+  <title>问答·计算训练</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E%F0%9F%97%92%EF%B8%8F%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css?v=20260923" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: { colors: {
+      brand: { 50:'#eef5fb', 100:'#dce9f5', 500:'#1f4e79', 600:'#163e63', 700:'#0d3b66' }
+    } } } }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100">
+
+<div id="app" class="mx-auto max-w-screen-md min-h-screen flex flex-col">
+
+  <!-- 顶部 -->
+  <header class="sticky top-0 z-30 bg-white/95 dark:bg-slate-800/95 backdrop-blur border-b border-slate-200 dark:border-slate-700">
+    <div class="flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🗒️</span>
+        <div>
+          <div class="text-base font-bold text-brand-700 dark:text-brand-100">问答·计算训练</div>
+          <div class="text-[11px] text-slate-500 dark:text-slate-400" id="subtitle">要点式答题 · 填数判分</div>
+        </div>
+      </div>
+      <button id="btn-dark" class="w-9 h-9 rounded-full flex items-center justify-center bg-slate-100 dark:bg-slate-700" aria-label="切换深色模式">
+        <span id="icon-dark" class="text-lg">🌙</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 主内容区 -->
+  <main id="main" class="flex-1 pb-24 px-4 pt-3">
+    <!-- 页面内容由 JS 渲染 -->
+  </main>
+
+  <!-- 底部导航 -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 shadow-lg">
+    <div class="mx-auto max-w-screen-md grid grid-cols-5">
+      <button data-page="home" class="nav-btn"><span class="nav-icon">🏠</span><span class="nav-label">首页</span></button>
+      <button data-page="qa" class="nav-btn"><span class="nav-icon">🗒️</span><span class="nav-label">问答</span></button>
+      <button data-page="calc" class="nav-btn"><span class="nav-icon">🧮</span><span class="nav-label">计算</span></button>
+      <button data-page="challenge" class="nav-btn"><span class="nav-icon">🏆</span><span class="nav-label">挑战</span></button>
+      <button data-page="me" class="nav-btn"><span class="nav-icon">👤</span><span class="nav-label">我的</span></button>
+    </div>
+  </nav>
+</div>
+
+<!-- 练习弹层 -->
+<div id="session-modal" class="hidden fixed inset-0 z-40 bg-slate-50 dark:bg-slate-900 flex flex-col">
+  <header class="flex items-center justify-between px-4 py-3 bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700">
+    <button id="session-exit" class="text-slate-500 dark:text-slate-300 px-2">← 退出</button>
+    <div id="session-progress" class="text-sm text-slate-500 dark:text-slate-300">1 / 10</div>
+    <div id="session-mode" class="text-xs font-medium text-brand-700 dark:text-brand-100"></div>
+  </header>
+  <div class="flex-1 overflow-y-auto px-4 py-4" id="session-body"></div>
+  <div id="session-footer" class="px-4 py-3 bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700 flex gap-2"></div>
+</div>
+
+<!-- 结算弹层 -->
+<div id="result-modal" class="hidden fixed inset-0 z-50 bg-black/40 flex items-center justify-center px-6">
+  <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+    <div class="text-center mb-4">
+      <div class="text-4xl mb-2" id="result-emoji">🎉</div>
+      <div class="text-lg font-bold" id="result-title">完成</div>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-center text-sm mb-4" id="result-stats"></div>
+    <div id="result-detail" class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4 max-h-40 overflow-y-auto"></div>
+    <div class="flex gap-2">
+      <button id="result-close" class="flex-1 py-2.5 rounded-lg border border-slate-300 dark:border-slate-600 text-sm">关闭</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="hidden fixed top-1/3 left-1/2 -translate-x-1/2 z-50 bg-slate-800 text-white text-sm px-4 py-2 rounded-full shadow-lg"></div>
+
+<script src="data.js?v=20260923"></script>
+<script src="app.js?v=20260923"></script>
+</body>
+</html>
