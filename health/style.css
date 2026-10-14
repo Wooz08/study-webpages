@@ -1,0 +1,122 @@
+/* 健康保险实务 · 刷题训练 —— 主题：青绿 + 深蓝 */
+* { -webkit-tap-highlight-color: transparent; }
+html, body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif; }
+body { padding-bottom: env(safe-area-inset-bottom); }
+
+/* 底部导航 */
+.nav-btn {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 8px 4px 6px; gap: 2px;
+  color: #64748b; transition: color .15s;
+}
+.nav-btn .nav-icon { font-size: 20px; line-height: 1; }
+.nav-btn .nav-label { font-size: 11px; }
+.nav-btn.active { color: #0e6f64; }
+.dark .nav-btn.active { color: #5eead4; }
+.dark .nav-btn { color: #94a3b8; }
+
+/* 卡片 */
+.card {
+  background: white; border-radius: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  padding: 16px; margin-bottom: 12px;
+}
+.dark .card { background: #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,.4); }
+
+/* 选项按钮 */
+.opt {
+  display: block; width: 100%; text-align: left;
+  padding: 12px 14px; border-radius: 10px;
+  border: 1.5px solid #e2e8f0;
+  background: white; color: #1e293b;
+  transition: all .15s; line-height: 1.5;
+  font-size: 15px;
+}
+.opt:active { transform: scale(.98); }
+.dark .opt { background: #1e293b; color: #e2e8f0; border-color: #334155; }
+.opt.selected { border-color: #0e6f64; background: #eaf6f4; }
+.dark .opt.selected { border-color: #2dd4bf; background: #134e4a; }
+.opt.correct { border-color: #16a34a; background: #f0fdf4; }
+.opt.wrong { border-color: #dc2626; background: #fef2f2; }
+.dark .opt.correct { background: #14532d; }
+.dark .opt.wrong { background: #7f1d1d; }
+
+/* 进度条 */
+.bar { height: 6px; background: #e2e8f0; border-radius: 3px; overflow: hidden; }
+.bar > div { height: 100%; background: linear-gradient(90deg, #0e6f64, #2dd4bf); transition: width .3s; }
+.dark .bar { background: #334155; }
+
+/* 按钮 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+  padding: 10px 16px; border-radius: 10px; font-size: 14px; font-weight: 500;
+  transition: transform .1s, background .15s;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: #0e6f64; color: white; }
+.btn-primary:hover { background: #0b544c; }
+.btn-outline { border: 1.5px solid #cbd5e1; color: #475569; }
+.dark .btn-outline { border-color: #475569; color: #cbd5e1; }
+.btn-ghost { color: #475569; }
+.dark .btn-ghost { color: #cbd5e1; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* 模块 / 章节标签 */
+.tag { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; }
+.tag-modA { background: #dbeafe; color: #1e40af; }
+.tag-modB { background: #ccfbf1; color: #115e59; }
+.tag-modC { background: #ede9fe; color: #5b21b6; }
+.dark .tag-modA { background: #1e3a8a; color: #bfdbfe; }
+.dark .tag-modB { background: #134e4a; color: #99f6e4; }
+.dark .tag-modC { background: #4c1d95; color: #ddd6fe; }
+
+.tag-diff-1 { background: #d1fae5; color: #065f46; }
+.tag-diff-2 { background: #fef3c7; color: #92400e; }
+.tag-diff-3 { background: #fee2e2; color: #991b1b; }
+.dark .tag-diff-1 { background: #064e3b; color: #a7f3d0; }
+.dark .tag-diff-2 { background: #78350f; color: #fde68a; }
+.dark .tag-diff-3 { background: #7f1d1d; color: #fecaca; }
+
+/* 打卡按钮 */
+.checkin-btn {
+  width: 100%; padding: 18px; border-radius: 14px;
+  background: linear-gradient(135deg, #0e6f64, #2dd4bf);
+  color: white; font-size: 17px; font-weight: 600;
+  box-shadow: 0 4px 12px rgba(14,111,100,.3);
+  transition: all .15s;
+}
+.checkin-btn:active { transform: scale(.98); }
+.checkin-btn.done { background: #16a34a; box-shadow: 0 4px 12px rgba(22,163,74,.3); }
+
+/* 题目列表行 */
+.qrow {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 0; border-bottom: 1px solid #f1f5f9;
+}
+.qrow:last-child { border-bottom: none; }
+.dark .qrow { border-color: #334155; }
+
+/* 滚动条 */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* 统计 */
+.stat-cell { text-align: center; padding: 8px 0; }
+.stat-num { font-size: 22px; font-weight: 700; line-height: 1; }
+.stat-label { font-size: 11px; color: #64748b; margin-top: 4px; }
+.dark .stat-label { color: #94a3b8; }
+
+/* Loading */
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid #cbd5e1; border-top-color: #0e6f64; border-radius: 50%; animation: spin .8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* 弹出层动画 */
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+#quiz-modal:not(.hidden) > .flex-1 { animation: slideUp .25s ease-out; }
+
+/* 分区入口卡 */
+.mod-card { border-left: 4px solid #0e6f64; }
+.mod-card.A { border-left-color: #2563eb; }
+.mod-card.B { border-left-color: #0e6f64; }
+.mod-card.C { border-left-color: #7c3aed; }
